@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - Campus Facility System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Campus Facilities Login</h2>
+
+    <div th:if="${param.error}" class="alert alert-danger">
+        Invalid username or password.
+    </div>
+
+    <div th:if="${param.logout}" class="alert alert-success">
+        You have been successfully logged out.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label for="username">Username (ID/Email):</label>
+            <input type="text" id="username" name="username" required autofocus />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <div>
+            <button type="submit">Log In</button>
+        </div>
+    </form>
+
+    <p style="margin-top: 20px; color: #78909c;">
+        Admin Credentials: **admin** / **adminpass**
+    </p>
+</div>
+
+</body>
+</html>
